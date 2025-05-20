@@ -110,7 +110,8 @@ Deploy on **Vercel** in seconds:
 
 Also compatible with Netlify, Render, and Cloudflare Pages—just set your env vars.
 
----
+Here’s an example of where and how you can insert the “Tagging Steps” into your README. I’ve added a new **AI Tagging Setup** section right after **Useful Links**:
+
 
 ## 🔗 Useful Links
 
@@ -122,4 +123,45 @@ Also compatible with Netlify, Render, and Cloudflare Pages—just set your env v
 
 ---
 
+## 🧠 AI Tagging Setup
+
+1. **Enable the AWS Rekognition add-on**  
+   Visit your Cloudinary Marketplace and enable the AWS Rekognition Auto-Tagging add-on for your account:  
+   https://console.cloudinary.com/pm/c-1ee78f0a9ad9e5e1a427b4bfd6dbbd/marketplace/all
+
+2. **Review the Rekognition add-on docs**  
+   Understand the parameters and confidence thresholds you can use:  
+   https://cloudinary.com/documentation/aws_rekognition_auto_tagging_addon
+
+3. **Trigger tagging on existing images**  
+   Use the Admin API’s `update` call to apply Rekognition to assets you’ve already uploaded:  
+   https://cloudinary.com/documentation/admin_api#update_details_of_an_existing_resource
+
+```js
+   // Example (Node.js):
+   cloudinary.v2.api
+     .update("my-folder/my-image", {
+       categorization: "aws_rek_tagging",
+       auto_tagging:   0.7      // only tags ≥70% confidence
+     })
+     .then(res => console.log(res.tags))
+     .catch(err => console.error(err));
+```
+
+4. **(Option 2) Run the built-in script**
+   If you’ve cloned this repo, simply make the script executable and run:
+
+   ```bash
+   chmod +x scripts/tag-assets.cjs
+   npm run tag-assets
+   ```
+
+   This will loop through your `cloudinary-storefront` folder PNGs and auto-tag them in one go.
+
+---
+
 *Ready to showcase your products like never before? Let’s build!* 🎉
+
+```
+
+

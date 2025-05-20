@@ -1,17 +1,23 @@
 import type { NextConfig } from 'next';
 
 /**
- * Allow next/image to optimize Cloudinary URLs.
- * Reads your cloud name from NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME.
+ * Allow next/image to optimize Cloudinary URLs and shields.io badges.
  */
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        // Cloudinary media
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        // match any path under your cloud
         pathname: `/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/**`,
+      },
+      {
+        // Shields.io badges
+        protocol: 'https',
+        hostname: 'img.shields.io',
+        // match any badge path, e.g. /badge/Next.js-15-blue
+        pathname: '/badge/**',
       },
     ],
     formats: ['image/avif', 'image/webp'],
