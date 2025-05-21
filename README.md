@@ -23,20 +23,8 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38BDF8?logo=tailwindcss)](https://tailwindcss.com/)
 [![shadcn/ui](https://img.shields.io/badge/shadcn.ui-components-pink?logo=tailwindcss)](https://ui.shadcn.com/)
 [![Motion.dev](https://img.shields.io/badge/Motion.dev-framer--motion-orange?logo=motion)](https://motion.dev/)
-[![Axios](https://img.shields.io/badge/Axios-^1.3.0-grey?logo=axios)](https://axios-http.com/)
 
----
 
-## 📚 Table of Contents
-
-1. [Prerequisites](#prerequisites)
-2. [Local Setup](#local-setup)
-3. [Environment Variables](#environment-variables)
-4. [Available Scripts](#available-scripts)
-5. [Deploying](#deploying)
-6. [Useful Links](#useful-links)
-
----
 
 ## ✅ Prerequisites
 
@@ -50,13 +38,12 @@
   * Cloud Name
   * API Key & Secret
 
----
 
 ## 🚀 Local Setup
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/nextjs-cloudinary-storefront.git
+git clone https://github.com/musebe/nextjs-cloudinary-storefront
 cd nextjs-cloudinary-storefront
 
 # 2. Install dependencies
@@ -71,8 +58,6 @@ npm run dev
 # → Open http://localhost:3000
 ```
 
----
-
 ## ⚙️ Environment Variables
 
 Create a `.env.local` file with the following:
@@ -86,7 +71,6 @@ Create a `.env.local` file with the following:
 
 > 🔒 **Never** commit `.env.local` or real secrets to source control.
 
----
 
 ## 📜 Available Scripts
 
@@ -121,7 +105,6 @@ Here’s an example of where and how you can insert the “Tagging Steps” into
 * 💫 [Motion.dev Quickstart](https://motion.dev/docs/react-quick-start)
 * 🛠 [shadcn/ui Components](https://ui.shadcn.com/)
 
----
 
 ## 🧠 AI Tagging Setup
 
@@ -136,6 +119,7 @@ Here’s an example of where and how you can insert the “Tagging Steps” into
 3. **Trigger tagging on existing images**  
    Use the Admin API’s `update` call to apply Rekognition to assets you’ve already uploaded:  
    https://cloudinary.com/documentation/admin_api#update_details_of_an_existing_resource
+
 
 ```js
    // Example (Node.js):
@@ -158,10 +142,7 @@ Here’s an example of where and how you can insert the “Tagging Steps” into
 
    This will loop through your `cloudinary-storefront` folder PNGs and auto-tag them in one go.
 
----
 
 *Ready to showcase your products like never before? Let’s build!* 🎉
-
-```
 
 
